@@ -107,6 +107,20 @@ def append_night_log(date_str: str, text: str):
     _put_file(file_data["path"], updated, file_data["sha"], f"Update night log {date_str}")
 
 
+def append_todo_log(date_str: str, text: str):
+    file_data = ensure_daily_file(date_str)
+    lines = [f"- {text}"]
+    updated = _append_to_section(file_data["content"], "## Todo", lines)
+    _put_file(file_data["path"], updated, file_data["sha"], f"Update todo log {date_str}")
+
+
+def append_note_log(date_str: str, text: str):
+    file_data = ensure_daily_file(date_str)
+    lines = [f"- {text}"]
+    updated = _append_to_section(file_data["content"], "## Notes", lines)
+    _put_file(file_data["path"], updated, file_data["sha"], f"Update notes log {date_str}")
+
+
 def assert_github_config():
     missing = []
     if not Settings.GITHUB_TOKEN:

@@ -24,7 +24,7 @@ class Settings:
 
     # OpenAI (optional)
     OPENAI_TOKEN = os.environ.get("OPENAI_TOKEN", "")
-    CHATGPT_MODEL = os.environ.get("CHATGPT_MODEL", "gpt-3.5-turbo")
+    CHATGPT_MODEL = os.environ.get("CHATGPT_MODEL", "gpt-4.1-mini")
 
     # Google Calendar
     GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID", "")

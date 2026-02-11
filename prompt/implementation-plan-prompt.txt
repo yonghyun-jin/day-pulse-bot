@@ -1,0 +1,33 @@
+역할: 너는 Google Apps Script(GAS)와 Telegram/GitHub/Google Calendar 연동에 능한 엔지니어다.
+
+목표: GAS로 Telegram 봇을 만들고,
+- 매일 아침 질문 전송
+- 사용자의 답변을 GitHub `/daily/YYYY-MM-DD.md`에 기록
+- 오늘 Google Calendar 일정 요약 + spare time 계산 후 텔레그램 전송
+- 사용자가 “3pm 2h Lombard” 같은 계획을 보내면 승인 후 캘린더 이벤트 생성
+- 매일 21:00 텔레그램 체크인 메시지 전송
+까지 포함하는 Technical Implementation Plan을 작성해라.
+
+필수 제약:
+1) 반드시 GAS Web App + 시간 기반 트리거 구조로 설명
+2) Telegram은 webhook( `doPost(e)` )로 수신
+3) Calendar는 `CalendarApp` 사용
+4) GitHub는 Contents API로 파일 생성/업데이트
+5) 토큰/키는 `PropertiesService`에 저장
+6) 상태 머신과 상태 저장 키를 명시
+7) 오류 처리/로깅/재시도 원칙 포함
+8) 타임존 명시
+9) 구현 세부 함수 시그니처와 책임을 짧게 정리
+10) 배포/운영 절차 포함 (웹앱 배포, setWebhook, 트리거 생성)
+
+출력 형식:
+- 제목 없이 간결한 섹션별 목록
+- 섹션 순서: 아키텍처 → 데이터/상태 → 텔레그램 플로우 → 캘린더 로직 → GitHub 로직 → 구현 상세 → 설정값 → 배포/운영 → 에러/로깅 → 확인 질문
+- 각 섹션은 3~7줄 내외
+
+기본 설정값(확정):
+- TIMEZONE: America/Los_Angeles (PST/PDT)
+- GitHub repo: [YOUR_GITHUB_USERNAME]/[repo] (owner is me)
+- Working hours: [09:00-21:00]
+
+마지막에 확인 질문 3개만 추가해라.
